@@ -1,19 +1,21 @@
+import java.util.Random;
 public class EconomyTicket extends Ticket {
 	double economyBaseCost = 1350.00;
 	double bagCost = 50;
-	public EconomyTicket(String nameIn, int numOfBags, int numOfDrinks) {
-		super(nameIn, numOfBags, numOfDrinks);
+	Random rnd = new Random();
+	public EconomyTicket(String nameIn, int numOfBagsIn, int numOfDrinksIn) {
+		super(nameIn, numOfBagsIn, numOfDrinksIn);
 	}
 
 	public double getCost() {
-		if(numOfBags > 1) {
-			bagCost = bagCost + ((numOfBags - 1)  * 35.00);
+		if(super.getNumOfBags() > 1) {
+			bagCost = bagCost + ((super.getNumOfBags() - 1)  * 35.00);
 		}
-		return economyBaseCost + (2.50 * numofDrinks) + bagCost;
+		return economyBaseCost + (2.50 * super.getNumOfDrinks()) + bagCost;
 	}
 
 	public int getBoardingGroupNum() {
-		return random.nextInt(4-2 + 1) + 2;
+		return rnd.nextInt(4-2 + 1) + 2;
 	}
 
 

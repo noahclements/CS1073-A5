@@ -1,19 +1,19 @@
 public class FirstClassTicket extends Ticket {
 	double firstClassBaseCost = 2175.00;
 	double drinkCost;
-	public FirstClassTicket(String nameIn, int numOfBags, int numOfDrinks) {
-		super(nameIn, numOfBags, numOfDrinks);
-
-
+	int numOfDrinks;
+	public FirstClassTicket(String nameIn, int numOfBagsIn, int numOfDrinksIn) {
+		super(nameIn, numOfBagsIn, numOfDrinksIn);
+		numOfDrinks = numOfDrinksIn;
 	}
 
 	public double getCost() {
-		if(numOfDrinks <= 2) {
+		if(super.getNumOfDrinks() <= 2) {
 			numOfDrinks = 0;
-		} else if(numOfDrinks > 2) {
+		} else if(super.getNumOfDrinks() > 2) {
 			numOfDrinks -= 2;
 		}
-		return firstClassBaseCost + (numOfBags * 30.00) + (numOfDrinks * 2.50);
+		return firstClassBaseCost + (super.getNumOfBags() * 30.00) + (numOfDrinks * 2.50);
 	}
 
 	public int getBoardingGroupNum() {
