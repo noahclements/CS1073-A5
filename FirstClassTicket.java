@@ -16,4 +16,8 @@ public class FirstClassTicket extends Ticket {
 		return firstClassBaseCost + (numOfBags * 30.00) + (numOfDrinks * 2.50);
 	}
 
+	public int getBoardingGroupNum() {
+		return 1;
+	}
+
 }

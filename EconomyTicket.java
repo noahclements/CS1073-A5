@@ -12,5 +12,9 @@ public class EconomyTicket extends Ticket {
 		return economyBaseCost + (2.50 * numofDrinks) + bagCost;
 	}
 
+	public int getBoardingGroupNum() {
+		return random.nextInt(4-2 + 1) + 2;
+	}
+
 
 }
