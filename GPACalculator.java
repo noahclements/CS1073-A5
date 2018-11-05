@@ -1,5 +1,5 @@
 import javafx.application.Application;
-import javafx.stage.Scene;
+import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -9,13 +9,15 @@ import javafx.scene.layout.FlowPane;
 import javafx.geometry.Pos;
 import javafx.event.ActionEvent;
 public class GPACalculator extends Application {
-	private TextField letterGrade;
-	private TextField creditHours;
+	private TextField letterGradeField;
+	private TextField creditHoursField;
 	private Text pointsResult;
-	private Text GPAresult;
+	private Text resultGPA;
 	double gradePoints = 0;
 	double totalGradePoints = 0;
 	int totalCreditHours = 0;
+	int creditsInput;
+	String gradeInput;
 
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("GPA Calculator");
@@ -38,12 +40,12 @@ public class GPACalculator extends Application {
 		creditHoursField.setOnAction(this::processGPA);
 
 		pointsResult = new Text("Welcome to my GPA calculator!");
-		GPAresult = new Text("Enter your 1st grade & credit hrs.");
+		resultGPA = new Text("Enter your 1st grade & credit hrs.");
 
 		FlowPane pane = new FlowPane
-		(letterGradeText, letterGradeField, addToGPA, clearGPA, creditHoursText, creditHoursField, pointsResult, GPAresult);
+		(letterGradeText, letterGradeField, addToGPA, clearGPA, creditHoursText, creditHoursField, pointsResult, resultGPA);
 		pane.setAlignment(Pos.CENTER);
-		pane.setHGap(10);
+		pane.setHgap(10);
 		pane.setVgap(20);
 
 		Scene scene = new Scene(pane, 300, 150);
@@ -53,75 +55,75 @@ public class GPACalculator extends Application {
 	}
 
 	public void processGPA(ActionEvent event) {
-		String gradeInput = letterGradeField.getText();
-		int creditsInput = Int.parseInt(creditHoursField.getText());
+		gradeInput = letterGradeField.getText();
+		creditsInput = Integer.parseInt(creditHoursField.getText());
 
 		if(gradeInput.equals("A+")) {
 			gradePoints = 4.3;
 			pointsResult.setText("Points for this course: " + (double)(gradePoints * creditsInput));
 			totalGradePoints += gradePoints;
-			totalCreditHours += creditHours;
-			GPAresult.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditsHours));
+			totalCreditHours += creditsInput;
+			resultGPA.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditHours));
 		} else if(gradeInput.equals("A")) {
 			gradePoints = 4.0;
 			pointsResult.setText("Points for this course: " + (double)(gradePoints * creditsInput));
 			totalGradePoints += gradePoints;
-			totalCreditHours += creditHours;
-			GPAresult.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditsHours));
+			totalCreditHours += creditsInput;
+			resultGPA.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditHours));
 		} else if(gradeInput.equals("A-")) {
 			gradePoints = 3.7;
 			pointsResult.setText("Points for this course: " + (double)(gradePoints * creditsInput));
 			totalGradePoints += gradePoints;
-			totalCreditHours += creditHours;
-			GPAresult.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditsHours));
+			totalCreditHours += creditsInput;
+			resultGPA.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditHours));
 		} else if(gradeInput.equals("B+")) {
 			gradePoints = 3.3;
 			pointsResult.setText("Points for this course: " + (double)(gradePoints * creditsInput));
 			totalGradePoints += gradePoints;
-			totalCreditHours += creditHours;
-			GPAresult.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditsHours));
+			totalCreditHours += creditsInput;
+			resultGPA.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditHours));
 		} else if(gradeInput.equals("B")) {
 			gradePoints = 3.0;
 			pointsResult.setText("Points for this course: " + (double)(gradePoints * creditsInput));
 			totalGradePoints += gradePoints;
-			totalCreditHours += creditHours;
-			GPAresult.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditsHours));
+			totalCreditHours += creditsInput;
+			resultGPA.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditHours));
 		} else if(gradeInput.equals("B-")) {
 			gradePoints = 2.7;
 			pointsResult.setText("Points for this course: " + (double)(gradePoints * creditsInput));
 			totalGradePoints += gradePoints;
-			totalCreditHours += creditHours;
-			GPAresult.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditsHours));
+			totalCreditHours += creditsInput;
+			resultGPA.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditHours));
 		} else if(gradeInput.equals("C+")) {
 			gradePoints = 2.3;
 			pointsResult.setText("Points for this course: " + (double)(gradePoints * creditsInput));
 			totalGradePoints += gradePoints;
-			totalCreditHours += creditHours;
-			GPAresult.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditsHours));
+			totalCreditHours += creditsInput;
+			resultGPA.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditHours));
 		} else if(gradeInput.equals("C")) {
 			gradePoints = 2.0;
 			pointsResult.setText("Points for this course: " + (double)(gradePoints * creditsInput));
 			totalGradePoints += gradePoints;
-			totalCreditHours += creditHours;
-			GPAresult.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditsHours));
+			totalCreditHours += creditsInput;
+			resultGPA.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditHours));
 		} else if(gradeInput.equals("D")) {
 			gradePoints = 1.0;
 			pointsResult.setText("Points for this course: " + (double)(gradePoints * creditsInput));
 			totalGradePoints += gradePoints;
-			totalCreditHours += creditHours;
-			GPAresult.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditsHours));
+			totalCreditHours += creditsInput;
+			resultGPA.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditHours));
 		} else if(gradeInput.equals("F")) {
 			gradePoints = 0.0;
 			pointsResult.setText("Points for this course: " + (double)(gradePoints * creditsInput));
 			totalGradePoints += gradePoints;
-			totalCreditHours += creditHours;
-			GPAresult.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditsHours));
+			totalCreditHours += creditsInput;
+			resultGPA.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditHours));
 		} else if(gradeInput.equals("WF")) {
 			gradePoints = 0.0;
 			pointsResult.setText("Points for this course: " + (double)(gradePoints * creditsInput));
 			totalGradePoints += gradePoints;
-			totalCreditHours += creditHours;
-			GPAresult.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditsHours));
+			totalCreditHours += creditsInput;
+			resultGPA.setText("Your culmulative GPA is: " + (double)(totalGradePoints / totalCreditHours));
 		} else {
 			pointsResult.setText("Invalid grade - GPA not changed");
 		}
@@ -130,9 +132,9 @@ public class GPACalculator extends Application {
 
 	public void clearGPA(ActionEvent event) {
 		totalGradePoints = 0;
-		totalCreditsHours = 0;
+		totalCreditHours = 0;
 		pointsResult.setText("Totals have been reset.");
-		GPAResult.setText("Enter your 1st grade & credit hrs.");
+		resultGPA.setText("Enter your 1st grade & credit hrs.");
 	}
 
 

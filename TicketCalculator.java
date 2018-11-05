@@ -18,7 +18,8 @@ public class TicketCalculator extends Application {
 	private Text costOfFlight;
 
 	public void start(Stage primaryStage) {
-		primaryStage.setTitle("Ticket Calculator")
+		primaryStage.setTitle("Ticket Calculator");
+		
 
 
 
