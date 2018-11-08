@@ -69,14 +69,14 @@ public class Ticket extends Application {
 
 		boardGroupNumber = new Text("Welcome to Flights R Us!");
 		costOfFlight = new Text("Enter your ticket information");
-
+		// the arrangement of the scene
 		FlowPane pane = new FlowPane(passengerNameText, passengerName, checkedBagsText, checkedBags, 
 			drinksText, drinks, economy, firstClass, reset, boardGroupNumber, costOfFlight);
 
 		pane.setAlignment(Pos.CENTER);
 		pane.setHgap(20);
 		pane.setVgap(20);
-
+		// length/width of the scene
 		Scene scene = new Scene(pane, 270, 300);
 
 		primaryStage.setScene(scene);
@@ -89,14 +89,18 @@ public class Ticket extends Application {
 		@param event button press event
 	*/
 	public void processCost(ActionEvent event) {
+		// variables equalling the various text fields
 		nameInput = passengerName.getText();
 		bagsInput = Integer.parseInt(checkedBags.getText());
 		drinksInput = Integer.parseInt(drinks.getText());
-
+		// if the user presses the economy button
 		if(event.getSource() == economy) {
+			// constructs a new economy ticket with the variables above
 			EconomyTicket t1 = new EconomyTicket(nameInput, bagsInput, drinksInput);
+			// and displays the boarding group # and cost of flight
 			boardGroupNumber.setText("Boarding Group Number: " + t1.getBoardingGroupNum());
 			costOfFlight.setText("Total cost of flight: " + format.format(t1.getCost()));
+			// if user presses the first class button
 		} else if(event.getSource() == firstClass) {
 			FirstClassTicket t2 = new FirstClassTicket(nameInput, bagsInput, drinksInput);
 			boardGroupNumber.setText("Boarding Group Number: " + t2.getBoardingGroupNum());
@@ -112,7 +116,7 @@ public class Ticket extends Application {
 	public void reset(ActionEvent event) {
 		boardGroupNumber.setText("Welcome to Flights R Us!");
 		costOfFlight.setText("Enter your ticket information");
-		passengerName.clear();
+		passengerName.clear();	// clears any text inside the field
 		checkedBags.clear();
 		drinks.clear();
 

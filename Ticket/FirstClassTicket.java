@@ -33,8 +33,10 @@ public class FirstClassTicket extends Ticket {
 	*/
 	public double getCost() {
 		if(numOfDrinks <= 2) {
+			// first class people have 2 free drinks
 			drinksAfterDiscount = 0;
 		} else if(numOfDrinks > 2) {
+			// if its greater than 2, just remove 2 and calculate the cost w/ that
 			drinksAfterDiscount -= 2;
 		}
 		return firstClassBaseCost + (numOfBags* 30.00) + (drinksAfterDiscount * 2.50);
@@ -44,6 +46,7 @@ public class FirstClassTicket extends Ticket {
 		@return the boarding group number for the person 
 	*/
 	public int getBoardingGroupNum() {
+		// first class tickets are always 1
 		return 1;
 	}
 

@@ -35,6 +35,7 @@ public class EconomyTicket extends Ticket {
 	*/
 	public double getCost() {
 		if(numOfBags > 1) {
+			// calculates the bag cost for $35/bag if number is >1
 			bagCost = bagCost + ((numOfBags - 1)  * 35.00);
 		}
 		return economyBaseCost + (2.50 * numOfDrinks) + bagCost;
@@ -44,6 +45,7 @@ public class EconomyTicket extends Ticket {
 		@return the boarding group number for the person 
 	*/
 	public int getBoardingGroupNum() {
+		// calculates a random number thats either 2, 3, or 4
 		return rnd.nextInt(4-2 + 1) + 2;
 	}
 

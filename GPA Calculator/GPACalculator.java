@@ -134,6 +134,8 @@ public class GPACalculator extends Application {
 	public void clearGPA(ActionEvent event) {
 		totalGradePoints = 0;
 		totalCreditHours = 0;
+		letterGradeField.clear();
+		creditHoursField.clear();
 		pointsResult.setText("Totals have been reset.");
 		resultGPA.setText("Enter your 1st grade & credit hrs.");
 	}
