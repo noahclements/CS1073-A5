@@ -35,7 +35,7 @@ public class Ticket extends Application {
 
 		Label passengerNameText = new Label("Passenger Name:");
 		passengerName = new TextField();
-		passengerName.setPrefWidth(50);
+		passengerName.setPrefWidth(130);
 		passengerName.setOnAction(this::processCost);
 
 		economy = new Button("Economy");
@@ -60,13 +60,14 @@ public class Ticket extends Application {
 		boardGroupNumber = new Text("Welcome to Flights R Us!");
 		costOfFlight = new Text("Enter your ticket information");
 
-		FlowPane pane = new FlowPane(passengerNameText, passengerName, economy, 
-			firstClass, checkedBagsText, checkedBags, drinksText, drinks, reset, boardGroupNumber, costOfFlight);
+		FlowPane pane = new FlowPane(passengerNameText, passengerName, checkedBagsText, checkedBags, 
+			drinksText, drinks, economy, firstClass, reset, boardGroupNumber, costOfFlight);
+
 		pane.setAlignment(Pos.CENTER);
 		pane.setHgap(10);
 		pane.setVgap(20);
 
-		Scene scene = new Scene(pane, 300, 150);
+		Scene scene = new Scene(pane, 270, 300);
 
 		primaryStage.setScene(scene);
 		primaryStage.show();
