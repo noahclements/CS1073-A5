@@ -8,10 +8,14 @@ import javafx.scene.text.Text;
 import javafx.scene.layout.FlowPane;
 import javafx.geometry.Pos;
 import javafx.event.ActionEvent;
-public abstract class Ticket extends Application {
+public class Ticket extends Application {
 	private String name;
 	private int numOfBags;
 	private int numOfDrinks;
+
+	private String nameInput;
+	private int bagsInput;
+	private int drinksInput;
 
 	private TextField passengerName;
 	private TextField checkedBags;
@@ -20,6 +24,9 @@ public abstract class Ticket extends Application {
 	private Text boardGroupNumber;
 	private Text costOfFlight;
 
+	private Button economy;
+	private Button firstClass;
+	/*
 	public Ticket(String nameIn, int numOfBagsIn, int numOfDrinksIn) {
 		name = nameIn;
 		numOfBags = numOfBagsIn;
@@ -37,7 +44,8 @@ public abstract class Ticket extends Application {
 	public int getNumOfDrinks() {
 		return numOfDrinks;
 	}
-
+	*/
+/*
 	public abstract double getCost();
 
 	public abstract int getBoardingGroupNum();
@@ -47,7 +55,7 @@ public abstract class Ticket extends Application {
 		+ "\n" + "Boarding number: " + getBoardingGroupNum();
 	}
 
-
+*/
 
 	public void start(Stage primaryStage) {
 		primaryStage.setTitle("Ticket Calculator");
@@ -58,10 +66,10 @@ public abstract class Ticket extends Application {
 		passengerName.setPrefWidth(50);
 		passengerName.setOnAction(this::processCost);
 
-		Button economy = new Button("Economy");
+		economy = new Button("Economy");
 		economy.setOnAction(this::processCost);
 
-		Button firstClass = new Button("First Class");
+		firstClass = new Button("First Class");
 		firstClass.setOnAction(this::processCost);
 
 		Label checkedBagsText = new Label("Number of checked bags:");
@@ -93,7 +101,21 @@ public abstract class Ticket extends Application {
 
 	}
 
+	public void processCost(ActionEvent event) {
+		if(event.getSource() == economy) {
+			nameInput = passengerName.getText();
+			bagsInput = Integer.parseInt(checkedBags.getText());
+			drinksInput = Integer.parseInt(drinks.getText());
+			EconomyTicket t1 = new EconomyTicket(nameInput, bagsInput, drinksInput);
+			t1.getCost();
+		}
 
+	}
+
+	public void reset(ActionEvent event) {
+
+
+	}
 
 
 }
