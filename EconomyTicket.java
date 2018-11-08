@@ -7,7 +7,6 @@ public class EconomyTicket extends Ticket {
 	private int numOfBags;
 	private int numOfDrinks;
 	public EconomyTicket(String nameIn, int numOfBagsIn, int numOfDrinksIn) {
-		//super(nameIn, numOfBagsIn, numOfDrinksIn);
 		name = nameIn;
 		numOfBags = numOfBagsIn;
 		numOfDrinks = numOfDrinksIn;

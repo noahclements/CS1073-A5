@@ -7,7 +7,6 @@ public class FirstClassTicket extends Ticket {
 	private int numOfDrinks;
 
 	public FirstClassTicket(String nameIn, int numOfBagsIn, int numOfDrinksIn) {
-		//super(nameIn, numOfBagsIn, numOfDrinksIn);
 		name = nameIn;
 		numOfBags = numOfBagsIn;
 		numOfDrinks = numOfDrinksIn;
