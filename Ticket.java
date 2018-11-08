@@ -108,6 +108,8 @@ public class Ticket extends Application {
 			drinksInput = Integer.parseInt(drinks.getText());
 			EconomyTicket t1 = new EconomyTicket(nameInput, bagsInput, drinksInput);
 			t1.getCost();
+			boardGroupNumber.setText("Boarding Group Number: " + t1.getBoardingGroupNum());
+			costOfFlight.setText("Total cost of flight: " + t1.getCost());
 		}
 
 	}
