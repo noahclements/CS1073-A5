@@ -11,14 +11,12 @@ public class EconomyTicket extends Ticket {
 		name = nameIn;
 		numOfBags = numOfBagsIn;
 		numOfDrinks = numOfDrinksIn;
-		bagCost = 0;
+		bagCost = 50;
 	}
 
 	public double getCost() {
 		if(numOfBags > 1) {
-			bagCost = bagCost + ((numOfBags - 1)  * 35.00) + 50;
-		} else if(numOfBags == 1) {
-			bagCost = 50;
+			bagCost = bagCost + ((numOfBags - 1)  * 35.00);
 		}
 		return economyBaseCost + (2.50 * numOfDrinks) + bagCost;
 	}
