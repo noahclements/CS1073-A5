@@ -27,10 +27,10 @@ public class GPACalculator extends Application {
 
 		Label letterGradeText = new Label("Course letter grade:");
 		letterGradeField = new TextField();
-		letterGradeField.setPrefWidth(50);
+		letterGradeField.setPrefWidth(50);	// setting up the grade input field stuff
 		letterGradeField.setOnAction(this::processGPA);
 
-		Button addToGPA = new Button("Add to GPA");
+		Button addToGPA = new Button("Add to GPA");	
 		addToGPA.setOnAction(this::processGPA);
 
 		Button clearGPA = new Button("Clear GPA");
@@ -42,31 +42,30 @@ public class GPACalculator extends Application {
 		creditHoursField.setPrefWidth(50);
 		creditHoursField.setOnAction(this::processGPA);
 
-		pointsResult = new Text("Welcome to my GPA calculator!");
-		resultGPA = new Text("Enter your 1st grade & credit hrs.");
-
+		pointsResult = new Text("Welcome to my GPA calculator!");	// text thats displayed at bottom
+			resultGPA = new Text("Enter your 1st grade & credit hrs");
 		FlowPane pane = new FlowPane
 		(letterGradeText, letterGradeField, creditHoursText, creditHoursField, addToGPA, clearGPA, 
-		pointsResult, resultGPA);
+		pointsResult, resultGPA);	// the arrangement for the scene
 
 		pane.setAlignment(Pos.CENTER);
 		pane.setHgap(20);
 		pane.setVgap(20);
 
-		Scene scene = new Scene(pane, 240, 250);
+		Scene scene = new Scene(pane, 240, 250); // the length/width of the scene
 
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
 
 	public void processGPA(ActionEvent event) {
-		gradeInput = letterGradeField.getText();
-		creditsInput = Integer.parseInt(creditHoursField.getText());
+		gradeInput = letterGradeField.getText();	// the grade input from the text field
+		creditsInput = Integer.parseInt(creditHoursField.getText()); // parsing the credits from the text field
 		boolean gradeIsValid = false;
 
 		if(gradeInput.equals("A+")) {
-			gradePoints = 4.3;
-			coursePoints = (double)(gradePoints * creditsInput);
+			gradePoints = 4.3;	// sets the GPA
+			coursePoints = (double)(gradePoints * creditsInput);	// calculates the total points for the course
 			pointsResult.setText("Points for this course: " + format.format(coursePoints));
 			gradeIsValid = true;
 		} else if(gradeInput.equals("A")) {
@@ -124,8 +123,9 @@ public class GPACalculator extends Application {
 		}
 
 		if(gradeIsValid) {
-			totalGradePoints += coursePoints;
-			totalCreditHours += creditsInput;
+			totalGradePoints += coursePoints; // adds the course points to the total
+			totalCreditHours += creditsInput; // adds the credits to the total
+			// displays the GPA 
 			resultGPA.setText("Your culmulative GPA is: " + format.format((double)(totalGradePoints / totalCreditHours)));
 		}
 
