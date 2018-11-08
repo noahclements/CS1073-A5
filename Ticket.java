@@ -8,7 +8,9 @@ import javafx.scene.text.Text;
 import javafx.scene.layout.FlowPane;
 import javafx.geometry.Pos;
 import javafx.event.ActionEvent;
+import java.text.NumberFormat;
 public class Ticket extends Application {
+
 	private String name;
 	private int numOfBags;
 	private int numOfDrinks;
@@ -102,20 +104,28 @@ public class Ticket extends Application {
 	}
 
 	public void processCost(ActionEvent event) {
+		nameInput = passengerName.getText();
+		bagsInput = Integer.parseInt(checkedBags.getText());
+		drinksInput = Integer.parseInt(drinks.getText());
+
 		if(event.getSource() == economy) {
-			nameInput = passengerName.getText();
-			bagsInput = Integer.parseInt(checkedBags.getText());
-			drinksInput = Integer.parseInt(drinks.getText());
 			EconomyTicket t1 = new EconomyTicket(nameInput, bagsInput, drinksInput);
-			t1.getCost();
 			boardGroupNumber.setText("Boarding Group Number: " + t1.getBoardingGroupNum());
 			costOfFlight.setText("Total cost of flight: " + t1.getCost());
+		} else if(event.getSource() == firstClass) {
+			FirstClassTicket t2 = new FirstClassTicket(nameInput, bagsInput, drinksInput);
+			boardGroupNumber.setText("Boarding Group Number: " + t2.getBoardingGroupNum());
+			costOfFlight.setText("Total cost of flight: " + t2.getCost());
 		}
 
 	}
 
 	public void reset(ActionEvent event) {
-
+		boardGroupNumber.setText("Welcome to Flights R Us!");
+		costOfFlight.setText("Enter your ticket information");
+		passengerName.clear();
+		checkedBags.clear();
+		drinks.clear();
 
 	}
 

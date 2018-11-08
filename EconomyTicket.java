@@ -1,7 +1,7 @@
 import java.util.Random;
 public class EconomyTicket extends Ticket {
 	private double economyBaseCost = 1350.00;
-	private double bagCost = 50;
+	private double bagCost;
 	private Random rnd = new Random();
 	private String name;
 	private int numOfBags;
@@ -11,11 +11,14 @@ public class EconomyTicket extends Ticket {
 		name = nameIn;
 		numOfBags = numOfBagsIn;
 		numOfDrinks = numOfDrinksIn;
+		bagCost = 0;
 	}
 
 	public double getCost() {
 		if(numOfBags > 1) {
-			bagCost = bagCost + ((numOfBags - 1)  * 35.00);
+			bagCost = bagCost + ((numOfBags - 1)  * 35.00) + 50;
+		} else if(numOfBags == 1) {
+			bagCost = 50;
 		}
 		return economyBaseCost + (2.50 * numOfDrinks) + bagCost;
 	}
