@@ -46,12 +46,14 @@ public class GPACalculator extends Application {
 		resultGPA = new Text("Enter your 1st grade & credit hrs.");
 
 		FlowPane pane = new FlowPane
-		(letterGradeText, letterGradeField, addToGPA, clearGPA, creditHoursText, creditHoursField, pointsResult, resultGPA);
+		(letterGradeText, letterGradeField, creditHoursText, creditHoursField, addToGPA, clearGPA, 
+		pointsResult, resultGPA);
+
 		pane.setAlignment(Pos.CENTER);
-		pane.setHgap(10);
+		pane.setHgap(20);
 		pane.setVgap(20);
 
-		Scene scene = new Scene(pane, 300, 150);
+		Scene scene = new Scene(pane, 240, 250);
 
 		primaryStage.setScene(scene);
 		primaryStage.show();

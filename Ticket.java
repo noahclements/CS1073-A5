@@ -1,3 +1,7 @@
+/**
+	Represents the parent class for the economy and first class tickets, where it calculates the cost + boarding num
+	@author Noah Clements 3585596
+*/
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -11,22 +15,28 @@ import javafx.event.ActionEvent;
 import java.text.NumberFormat;
 public class Ticket extends Application {
 	NumberFormat format = NumberFormat.getCurrencyInstance();
-	private String name;
-	private int numOfBags;
-	private int numOfDrinks;
-
+	/** the variable representing the user input of the name */
 	private String nameInput;
+	/** the variable representing the user input of the number of bags */
 	private int bagsInput;
+	/** the variable representing the user input of the number of bags */
 	private int drinksInput;
 
+	/** the text field where the user inputs their name */
 	private TextField passengerName;
+	/** the text field where the user inputs the # of bags */
 	private TextField checkedBags;
+	/** the text field where the user inputs the # of drinks */
 	private TextField drinks;
 
+	/** the text that displays the boarding group number */
 	private Text boardGroupNumber;
+	/** the text that displays the cost of the flight */
 	private Text costOfFlight;
 
+	/** the button that you press to calculate the cost of an Economy flight */
 	private Button economy;
+	/** the button that you press to calculate the cost of an First class flight */
 	private Button firstClass;
 
 	public void start(Stage primaryStage) {
@@ -64,7 +74,7 @@ public class Ticket extends Application {
 			drinksText, drinks, economy, firstClass, reset, boardGroupNumber, costOfFlight);
 
 		pane.setAlignment(Pos.CENTER);
-		pane.setHgap(10);
+		pane.setHgap(20);
 		pane.setVgap(20);
 
 		Scene scene = new Scene(pane, 270, 300);
@@ -74,6 +84,10 @@ public class Ticket extends Application {
 
 	}
 
+	/**
+		calculates the cost of the flight
+		@param event button press event
+	*/
 	public void processCost(ActionEvent event) {
 		nameInput = passengerName.getText();
 		bagsInput = Integer.parseInt(checkedBags.getText());
@@ -91,6 +105,10 @@ public class Ticket extends Application {
 
 	}
 
+	/**
+		clears all the Text Fields, and resets the texts to original 
+		@param event reset button press event
+	*/
 	public void reset(ActionEvent event) {
 		boardGroupNumber.setText("Welcome to Flights R Us!");
 		costOfFlight.setText("Enter your ticket information");
