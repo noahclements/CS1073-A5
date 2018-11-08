@@ -10,7 +10,7 @@ import javafx.geometry.Pos;
 import javafx.event.ActionEvent;
 import java.text.NumberFormat;
 public class Ticket extends Application {
-
+	NumberFormat format = NumberFormat.getCurrencyInstance();
 	private String name;
 	private int numOfBags;
 	private int numOfDrinks;
@@ -111,11 +111,11 @@ public class Ticket extends Application {
 		if(event.getSource() == economy) {
 			EconomyTicket t1 = new EconomyTicket(nameInput, bagsInput, drinksInput);
 			boardGroupNumber.setText("Boarding Group Number: " + t1.getBoardingGroupNum());
-			costOfFlight.setText("Total cost of flight: " + t1.getCost());
+			costOfFlight.setText("Total cost of flight: " + format.format(t1.getCost()));
 		} else if(event.getSource() == firstClass) {
 			FirstClassTicket t2 = new FirstClassTicket(nameInput, bagsInput, drinksInput);
 			boardGroupNumber.setText("Boarding Group Number: " + t2.getBoardingGroupNum());
-			costOfFlight.setText("Total cost of flight: " + t2.getCost());
+			costOfFlight.setText("Total cost of flight: " + format.format(t2.getCost()));
 		}
 
 	}
